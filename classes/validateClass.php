@@ -19,7 +19,7 @@ function isEntryUnique($valueParam, $attributeToCheck)
 	$qryCheck = mysql_query($sql);
 	$resultRow = mysql_fetch_assoc($qryCheck);
 	if ( ! ($resultRow === false) ) { return false; }
-	else{return true; }
+	else{return true;}
 
 }
 

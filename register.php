@@ -7,7 +7,48 @@
 
 <head>
 
-<!--<script type="text/javascript" src="includes/jquery-1.8.2.js"></script>-->
+<script type="text/JavaScript" src="includes/jquery-1.8.2.js"></script>
+
+<script type="text/JavaScript"> 
+
+
+
+function valiDate()
+{
+
+
+
+
+
+}
+
+
+
+$(document).ready(function(){
+
+
+
+$('#frmUsername, #frmEmail, #frmPass, #frmPass2').keyup(function(){valiDate()});
+
+
+/*	$('#sbmtBtt').click(function(){
+		var vSn = document.getElementById('frmUsername').value;
+		var vEm = document.getElementById('frmEmail').value;
+		var vPs = document.getElementById('frmPass').value;
+		var data = "formTxtUsername=" + vSn + "&formTxtEmail=" + vEm + "&formTxtPassword=" + vPs;
+		$.post('classes/valiDateClass.php', data, function(response) {	$('#AJDiv').html(response);});
+	});*/
+ });
+
+  
+  
+  
+  
+  
+  
+  
+</script>
+
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
 
 
@@ -32,7 +73,7 @@ Karnak Registration
 </nav>
 
 <div class="content">
-    <form action="registration2.php" method="post">
+    <form action="classes/valiDateClass.php" name="maForm" method="post">
 		<table class="center">
 			<tr>
 				<td><label for="frmUsername">Username:</label></td>
@@ -51,10 +92,13 @@ Karnak Registration
 				<td><input type="password" id="frmPass2" name="formTxtPassword2" placeholder="Password"></td>
 			</tr>			
 			<tr>
-				<td><input type="hidden" name="params" value="hidden form son"></td><td><input type="Submit"></td>
+				<td><input type="hidden" name="params" value="hidden form son"></td><td><input type="button" id="sbmtBtt" value="SENDDDD"></td>
 			</tr>
 		</table>
 	</form>
+	
+	<div id="ValiDiv"></div>
+	<div id="AJDiv"></div>
 	
 </div>
 

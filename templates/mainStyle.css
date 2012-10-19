@@ -31,6 +31,25 @@ nav{
 			/*background-color:rgba(255,0,0,.5);*/
 			width:90%;
 			height:87%;}
+			
+#AJDiv{
+			position:absolute;
+			top:48%;left:24%;
+			border:green 3px solid;
+			/*background-color:rgba(255,0,0,.5);*/
+			width:60%;
+			height:45%;
+			overflow: auto;}
+#ValiDiv{
+			position:absolute;
+			top:25%;left:6%;
+			border:black 3px dashed;
+			/*background-color:rgba(255,0,0,.5);*/
+			width:25%;
+			height:10%;
+			overflow: auto;}
+			
+			
 footer{
 				position:absolute;
 				top:94.5%;left:0%;
@@ -40,12 +59,16 @@ footer{
 
  table.center{
 					font-family:Courier New;
+					font-size:120%;
 					margin-top:15%;
 					margin-left:auto;
 					margin-right:auto;
-					width:30%;
+					width:35%;
+					height:55px;
 					background-color:rgba(0,0,0,.05);
 					border:red 2px solid;}
 
 input[type="text"], input[type="password"]{
-					width:100%;}
+					width:99%;
+					height:120%;
+					background-color:rgba(0,255,0,.05);}

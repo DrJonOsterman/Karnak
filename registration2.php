@@ -12,7 +12,6 @@ $userUsername = $_REQUEST['formTxtUsername'];
 $userEmail = $_REQUEST['formTxtEmail'];
 $userPassword = $_REQUEST['formTxtPassword'];
 $userPassword2 =  $_REQUEST['formTxtPassword'];
-//any validation code
 date_default_timezone_set('America/New_York');
 
 //Meta User Data

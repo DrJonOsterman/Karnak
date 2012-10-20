@@ -1,7 +1,6 @@
 <?php
 
  ?>
- 		Navigation
 		<ul>
 			<li>Links</li>
 			<li>Link2</li>

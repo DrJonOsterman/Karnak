@@ -1,3 +1,3 @@
-<?php echo "Karnak Registration" ?>
+<?php echo "Karnak ".$varTitle ?>
 
 

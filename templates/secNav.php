@@ -2,9 +2,9 @@
 
  ?>
 		<ul>
-			<li>Links</li>
-			<li>Link2</li>
-			<li>Link3</li>
-			<li>Link4</li>
-			<li>Link5</li>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="http://www.google.com">Log-In</a></li>
+			<li><a href="register.php">Register</a></li>
+			<li>Welp</li>
+			<li>test</li>
 		</ul>

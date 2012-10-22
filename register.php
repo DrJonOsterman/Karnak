@@ -1,5 +1,6 @@
 <?php
 //<!DOCTYPE html><html><head><title>Default Title</title></head><body>Default Body Content</body></html>
+$varTitle = "Registration";
 ?>
 
 <!DOCTYPE html>
@@ -13,14 +14,7 @@
 
 
 
-function valiDate()
-{
-
-
-
-
-
-}
+function valiDate(){}
 
 
 
@@ -57,55 +51,13 @@ $('#frmUsername, #frmEmail, #frmPass, #frmPass2').keyup(function(){valiDate()});
 
 <body>
 
-<header>
-Karnak Registration
-</header>
+<header><?php require_once 'templates/secHeader.php'; ?></header>
+<nav><?php require_once 'templates/secNav.php'; ?> </nav>
 
-<nav>
-	Navigation
-	<ul>
-		<li>Links</li>
-		<li>Link2</li>
-		<li>Link3</li>
-		<li>Link4</li>
-		<li>Link5</li>
-	</ul>
-</nav>
-
-<div class="content">
-    <form action="classes/valiDateClass.php" name="maForm" method="post">
-		<table class="center">
-			<tr>
-				<td><label for="frmUsername">Username:</label></td>
-				<td><input type="text" id="frmUsername" name="formTxtUsername" placeholder="Username"></td>
-			</tr>			
-			<tr>
-				<td><label for="frmEmail">E-Mail:</label></td>
-				<td><input type="text" id="frmEmail" name="formTxtEmail" placeholder="E-Mail Address"></td>
-			</tr>			
-			<tr>
-				<td><label for="frmPass">Password:</label></td>
-				<td><input type="password" id="frmPass"  name="formTxtPassword" placeholder="Password"></td>
-			</tr>		
-			<tr>
-				<td><label for="frmPass2">Retype:</label></td>
-				<td><input type="password" id="frmPass2" name="formTxtPassword2" placeholder="Password"></td>
-			</tr>			
-			<tr>
-				<td><input type="hidden" name="params" value="hidden form son"></td><td><input type="button" id="sbmtBtt" value="SENDDDD"></td>
-			</tr>
-		</table>
-	</form>
-	
-	<div id="ValiDiv"></div>
-	<div id="AJDiv"></div>
-	
-</div>
+<div class="content"> <?php require_once 'content/contentRegister.php'; ?> </div>
 
 
-<footer>
-About | Contact Us | Careers |
-</footer>
+<footer><?php require_once 'templates/secFooter.php'; ?> </footer>
 
 </body>
 

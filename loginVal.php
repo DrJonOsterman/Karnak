@@ -19,7 +19,7 @@ $varTitle = "Your Page";
 	
 	<nav> <?php require_once 'templates/secNav.php'; ?> </nav>
 	
-	<div class="content">	<?php require_once 'content/contentUserPage.php'; ?></div>
+	<div class="content">	<?php require_once 'classes/logInVal.php'; ?></div>
 	
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>

@@ -1,1 +1,8 @@
-<?php echo "In the footer son" ?>
+<?php
+
+ if(isset($_COOKIE['karnakCookie']))
+	{echo "Aaah you are logged in ";}
+else
+	{echo "No cookies!";}
+
+	?>

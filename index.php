@@ -1,5 +1,4 @@
 <?php
-
 //is user logged in variable
 $varTitle = "Home";
 ?>

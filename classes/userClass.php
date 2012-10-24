@@ -10,16 +10,16 @@ class user
 {
 //make default constructor private
 
-private $varUserID;
-private $varEmail;
-private $varPassword;
-private $varNickname;
-private $varPicture;
-private $varAbout;
-private $varSettings;
-private $varJoinDate;
-private $varLastLogin;
-private $varIPAddress;
+public $varUserID;
+public $varEmail;
+public $varPassword;
+public $varNickname;
+public $varPicture;
+public $varAbout;
+public $varSettings;
+public $varJoinDate;
+public $varLastLogin;
+public $varIPAddress;
 
 public function get($varType)
 {
@@ -89,8 +89,18 @@ public function printInfo()
 
 }
 
-$userObj = new user(55);
-echo $userObj->printInfo();
+$userObj = new user(2);
+
+$userObj->varNickname;
+$userObj->varEmail;
+$userObj->varAbout;
+$userObj->varPicture;
+$userObj->varJoinDate;
+$userObj->varSettings;
+
+
+//echo $userObj->varEmail;
+//echo $userObj->printInfo();
 
 
 /*

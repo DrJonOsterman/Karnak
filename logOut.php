@@ -1,7 +1,7 @@
 <?php
 
 //is user logged in variable
-$varTitle = "Your Page";
+$varTitle = "Log In";
 ?>
 
 
@@ -19,7 +19,13 @@ $varTitle = "Your Page";
 	
 	<nav> <?php require_once 'templates/secNav.php'; ?> </nav>
 	
-	<div class="content">	<?php require_once 'content/contentUserPage.php'; ?></div>
+	<div class="content">	
+	
+	
+<p>So you want to log out, do you?</p>
+	
+	
+	</div>
 	
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>

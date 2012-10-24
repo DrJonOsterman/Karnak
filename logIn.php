@@ -1,7 +1,7 @@
 <?php
 
 //is user logged in variable
-$varTitle = "Your Page";
+$varTitle = "Log In";
 ?>
 
 
@@ -19,7 +19,19 @@ $varTitle = "Your Page";
 	
 	<nav> <?php require_once 'templates/secNav.php'; ?> </nav>
 	
-	<div class="content">	<?php require_once 'content/contentUserPage.php'; ?></div>
+	<div class="content">	
+	
+	
+	<form action="logInVal.php" name="logInFrm" method="post">
+	<table class="center">
+	<tr><td>E-Mail:</td><td><input type="text" name="email"/></td></tr>
+	<tr><td>Password:</td><td><input type="password" name="pass" /></td></tr>
+	<tr><td></td><td><input type="submit" /></td></tr>
+	</table>
+	</form>
+	
+	
+	</div>
 	
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>

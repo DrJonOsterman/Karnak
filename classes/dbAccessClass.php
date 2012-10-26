@@ -25,13 +25,4 @@ class dbAccess
 		return self::$instance;
 	}
 }
-//  usage
-// $dab = dbAccess::getInstance();
-// $dab->connect();
-
- $dab = dbAccess::getInstance();
- $dab->connect();
-
-
-
 ?>

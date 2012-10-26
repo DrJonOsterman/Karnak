@@ -56,7 +56,7 @@ $('#frmUsername, #frmEmail, #frmPass, #frmPass2').keyup(function(){valiDate()});
 
 <div class="content"> 
 
-    <form action="classes/valiDateClass.php" name="maForm" method="post">
+    <form action="classes/validateClient.php" name="maForm" method="post">
 		<table class="center">
 			<tr>
 				<td><label for="frmUsername">Username:</label></td>

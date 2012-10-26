@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Karnak | Registration | Submitted</title>
-</head>
-
-<body>
-
-
 <?php
 $userUsername = $_REQUEST['formTxtUsername'];
 $userEmail = $_REQUEST['formTxtEmail'];
@@ -57,6 +48,3 @@ else {echo 'Query failed';}
 
 ?>
 
-
-
-</body></html>

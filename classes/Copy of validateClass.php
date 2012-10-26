@@ -6,7 +6,6 @@ include_once 'dbAccessClass.php'; //already initialized to the pointer $dab->
 $userUsername 	= $_REQUEST['formTxtUsername'];
 $userEmail 			= $_REQUEST['formTxtEmail'];
 $userPassword 	= $_REQUEST['formTxtPassword'];
-$type 				= $_REQUEST['param'];
 //$userPassword2 	= $_REQUEST['formTxtPassword'];
 
 //Meta User Data
@@ -15,22 +14,45 @@ $userJoinDate = date('Y-m-d G:i:s', time());
 $userIP = $_SERVER['REMOTE_ADDR']; 
 //------------------------------------
 
-//initValidating();
+
+initValidating();
 
 
 
 function initValidating()
 {
-	global $userUsername, $userEmail, $userPassword, $userJoinDate, $userIP;		
+	global $userUsername, $userEmail, $userPassword, $newID, $userJoinDate, $userIP;		
+	$salt = 'Ozymandias';
 
 	if ( (isSnGood($userUsername) === true) && (isEmailGood($userEmail) === true) && (isPasswordGood($userPassword) === true) )
 		{
-			$hash = md5('Ozymandias'. $userPassword);
-			$sqlInsert = "INSERT INTO `tbusers` (`email`, `password`, `nickname`, `joinDate`, `ipAddress`) VALUES ('$userEmail', '$hash', '$userUsername', '$userJoinDate', '$userIP')";
+			generateID();
+			$hash = md5($salt . $userPassword);
+			$sqlInsert = "INSERT INTO `tbusers` (`userID`, `email`, `password`, `nickname`, `joinDate`, `ipAddress`) VALUES ('$newID', '$userEmail', '$hash', '$userUsername', '$userJoinDate', '$userIP')";
 			if (mysql_query($sqlInsert)) {echo '<br /> Sucessful account created';}
 			else {echo 'Query failed. Please reload and try again.';}
 		}
 }
+
+function generateID()
+{
+	global $newID;
+	$sqlStatement = "SELECT `userID` FROM `tbusers` ORDER BY userID DESC LIMIT 1";
+	$idCheck = mysql_query($sqlStatement);
+	$resultRow = mysql_fetch_assoc($idCheck);
+	$newID = ($resultRow['userID']) + 1;
+
+	while (!(isEntryUnique($newID, 'id') === true))
+	{
+		echo "<br>in random loop<br>";
+		echo "id before: $newID";
+		$newID = rand($newID, 3549444);
+		"<br>id after: $newID";
+	}
+
+	echo "The Final ID is: $newID";
+}
+
 
 
 
@@ -46,6 +68,7 @@ function isPasswordGood(&$passParam)
 function isEntryUnique($valueParam, $attributeToCheck) //Used to check for unique userID, E-Mail addresses, and screen names
 {
 	$column = '';
+	if ($attributeToCheck === 'id') 		{$column = '`userID`';}
 	if ($attributeToCheck === 'email') 	{$column = '`email`';}
 	if ($attributeToCheck === 'sn') 		{$column = '`nickname`';}
 

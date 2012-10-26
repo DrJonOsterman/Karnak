@@ -10,16 +10,16 @@ class user
 {
 //make default constructor private
 
-public $varUserID;
-public $varEmail;
-public $varPassword;
-public $varNickname;
-public $varPicture;
-public $varAbout;
-public $varSettings;
-public $varJoinDate;
-public $varLastLogin;
-public $varIPAddress;
+private $varUserID;
+private $varEmail;
+private $varPassword;
+private $varNickname;
+private $varPicture;
+private $varAbout;
+private $varSettings;
+private $varJoinDate;
+private $varLastLogin;
+private $varIPAddress;
 
 public function get($varType)
 {
@@ -76,6 +76,18 @@ public function user($IDparam) //this loads a user into the instance of this cla
 	}
 }
 
+public function serializeUser()
+{$userArr = array(
+						'id' => $this->varUserID,
+						'sn' => $this->varNickname,
+						'pwd' => $this->varPassword,
+						'email' => $this->varEmail,
+						'about' => $this->varAbout,
+						'settings' => $this->varSettings,
+						'picture' => $this->varPicture,
+						'joined' => $this->varJoinDate);
+						return $userArr;}
+
 public function printInfo()
 {
 	echo "<div style='border:1px red solid;'><h3>This is your user</h3>";
@@ -89,14 +101,7 @@ public function printInfo()
 
 }
 
-$userObj = new user(2);
-
-$userObj->varNickname;
-$userObj->varEmail;
-$userObj->varAbout;
-$userObj->varPicture;
-$userObj->varJoinDate;
-$userObj->varSettings;
+//$userObj = new user(2);
 
 
 //echo $userObj->varEmail;

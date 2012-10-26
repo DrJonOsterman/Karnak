@@ -1,7 +1,7 @@
 <?php
 
 //is user logged in variable
-$varTitle = "Log In";
+$varTitle = "Your Page";
 ?>
 
 
@@ -22,14 +22,11 @@ $varTitle = "Log In";
 	<div class="content">	
 	
 	
-<p>So you want to log out, do you?</p>
-<?php
-
-setcookie('karnakCookie', '', time()-60*60*24*365);
-header('Location: index.php');
-
-
- ?>	
+So you want your posts here eh?
+	
+	
+	
+	
 	
 	</div>
 	

@@ -16,10 +16,46 @@ $varTitle = "Your Page";
 
 <body>
 	<header> <?php require_once 'templates/secHeader.php'; ?> </header>
+		<nav> <?php require_once 'templates/secNav.php'; ?> </nav>
 	
-	<nav> <?php require_once 'templates/secNav.php'; ?> </nav>
+	<div class="content">	
 	
-	<div class="content">	<?php require_once 'content/contentUserPage.php'; ?></div>
+		<?php require "classes/userClass.php";
+		$userObj = new user((int)$_COOKIE['karnakCookie']);
+		$myUser = $userObj->serializeUser();
+
+		/*
+								'id' => $this->varUserID,
+								'sn' => $this->varNickname,
+								'pwd' => $this->varPassword,
+								'email' => $this->varEmail,
+								'about' => $this->varAbout,
+								'settings' => $this->varSettings,
+								'picture' => $this->varPicture,
+								'joined' => $this->varJoinDate);*/
+		?>
+
+
+		
+		<img src ="<?php echo $myUser['picture']; ?>">
+
+		
+		<h1>Welcome <?php echo $myUser['sn'];?></h1>
+
+		<table class="left">
+		<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" /></td></tr>
+
+		<tr><td>Password</td><td><input type="text" value="<?php echo $myUser['pwd'] ?>" disabled="true" /></td></tr>
+		
+				<tr><td>About</td><td><textarea rows="4" cols="50"><?php echo $myUser['about'] ?></textarea></td></tr>
+				
+		<tr><td>Member since</td><td><?php echo $myUser['joined'] ?></td></tr>
+
+
+
+		</table>
+	
+	</div>
 	
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>

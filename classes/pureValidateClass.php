@@ -6,7 +6,6 @@ include_once 'dbAccessClass.php'; //already initialized to the pointer $dab->
 $userUsername 	= $_REQUEST['formTxtUsername'];
 $userEmail 			= $_REQUEST['formTxtEmail'];
 $userPassword 	= $_REQUEST['formTxtPassword'];
-$type 				= $_REQUEST['param'];
 //$userPassword2 	= $_REQUEST['formTxtPassword'];
 
 //Meta User Data
@@ -14,23 +13,6 @@ date_default_timezone_set('America/New_York');
 $userJoinDate = date('Y-m-d G:i:s', time());
 $userIP = $_SERVER['REMOTE_ADDR']; 
 //------------------------------------
-
-//initValidating();
-
-
-
-function initValidating()
-{
-	global $userUsername, $userEmail, $userPassword, $userJoinDate, $userIP;		
-
-	if ( (isSnGood($userUsername) === true) && (isEmailGood($userEmail) === true) && (isPasswordGood($userPassword) === true) )
-		{
-			$hash = md5('Ozymandias'. $userPassword);
-			$sqlInsert = "INSERT INTO `tbusers` (`email`, `password`, `nickname`, `joinDate`, `ipAddress`) VALUES ('$userEmail', '$hash', '$userUsername', '$userJoinDate', '$userIP')";
-			if (mysql_query($sqlInsert)) {echo '<br /> Sucessful account created';}
-			else {echo 'Query failed. Please reload and try again.';}
-		}
-}
 
 
 
@@ -42,6 +24,7 @@ function isPasswordGood(&$passParam)
 	if (!(substr_count($passParam, ' ') === 0))	{printValidationMessage(33); return false;}
 	else 														{printValidationMessage(300); return true;}
 }
+
 
 function isEntryUnique($valueParam, $attributeToCheck) //Used to check for unique userID, E-Mail addresses, and screen names
 {
@@ -55,7 +38,6 @@ function isEntryUnique($valueParam, $attributeToCheck) //Used to check for uniqu
 	$resultRow = mysql_fetch_assoc($qryCheck);
 	if ( ! ($resultRow === false) ) { return false; }
 	else{return true;}
-
 }
 
 function isEmailGood(&$emailParam)
@@ -64,7 +46,6 @@ function isEmailGood(&$emailParam)
 	 if (filter_var($emailParam, FILTER_VALIDATE_EMAIL) === false) {printValidationMessage(21); return;}
 	 if (isEntryUnique($emailParam, 'email') === false) 			   	   {printValidationMessage(22); return;}
 	 else																			   	   {printValidationMessage(200); return true;}
-	 
 }
 
 function isSnGood(&$snParam)

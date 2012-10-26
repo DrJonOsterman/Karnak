@@ -1,3 +1,2 @@
-<?php echo "Karnak Registration" ?>
-
+You are home!
 

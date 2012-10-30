@@ -1,5 +1,17 @@
 <?php
 class validate{
+
+
+	public function logInAuth($pEmail, $pPass)
+	{
+		$pPass = md5('Ozymandias' .$pPass)
+		$sql = "SELECT `userID`, `email`, `password` FROM `tbusers` WHERE `email` = '$clientEmail' AND `password` = '$clientPass'";
+		$qryCheck = mysql_query($sql);
+		$resultRow = mysql_fetch_assoc($qryCheck);
+		if ($resultRow === false){$this->printValidationMessage(40); return false;}
+		else if ( ! ($resultRow === false) ) {$this->printValidationMessage(400); return $resultRow['userID'];}
+	}
+
 	public function isEmailValid(&$emailParam)
 	{
 		$emailParam = trim($emailParam);
@@ -56,6 +68,8 @@ class validate{
 			case 32: 	echo '<br />The password must be at least 6 characters';							break;
 			case 33: 	echo '<br />The password cannot contain spaces';									break;
 			case 300: 	echo '<br />Password accepted';															break;
+			case 40:	echo '<br />Not a valid email/password combination';									break;
+			case 400:	echo '<br />Successful authentication';													break;
 		}
 	}
 }?>

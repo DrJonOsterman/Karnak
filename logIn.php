@@ -22,11 +22,11 @@ $varTitle = "Log In";
 	<div class="content">	
 	
 	
-	<form action="logInVal.php" name="logInFrm" method="post">
+	<form action="classes/logInVal.php" name="logInFrm" method="post">
 	<table class="center">
-	<tr><td>E-Mail:</td><td><input type="text" name="email"/></td></tr>
-	<tr><td>Password:</td><td><input type="password" name="pass" /></td></tr>
-	<tr><td></td><td><input type="submit" /></td></tr>
+	<tr><td>E-Mail:</td><td><input type="text" name="formTxtEmail"/></td></tr>
+	<tr><td>Password:</td><td><input type="password" name="formTxtPassword" /></td></tr>
+	<tr><td><input type="hidden" name="param" value="login" /></td><td><input type="submit" /></td></tr>
 	</table>
 	</form>
 	
@@ -37,4 +37,3 @@ $varTitle = "Log In";
 </body>
 
 </html>
-

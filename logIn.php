@@ -1,10 +1,3 @@
-<?php
-
-//is user logged in variable
-$varTitle = "Log In";
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +15,7 @@ $varTitle = "Log In";
 	<div class="content">	
 	
 	
-	<form action="classes/logInVal.php" name="logInFrm" method="post">
+	<form action="classes/validateClient.php" name="logInFrm" method="post">
 	<table class="center">
 	<tr><td>E-Mail:</td><td><input type="text" name="formTxtEmail"/></td></tr>
 	<tr><td>Password:</td><td><input type="password" name="formTxtPassword" /></td></tr>

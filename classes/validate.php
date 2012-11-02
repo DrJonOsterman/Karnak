@@ -1,25 +1,23 @@
 <?php
-class validate{
-
-
+class validate
+{
 	public function logInAuth($pEmail, $pPass)
 	{
-		$pPass = md5('Ozymandias' .$pPass)
-		$sql = "SELECT `userID`, `email`, `password` FROM `tbusers` WHERE `email` = '$clientEmail' AND `password` = '$clientPass'";
+		$pPass = md5('Ozymandias' .$pPass);
+		$sql = "SELECT `userID`, `email`, `password` FROM `tbusers` WHERE `email` = '$pEmail' AND `password` = '$pPass'";
 		$qryCheck = mysql_query($sql);
 		$resultRow = mysql_fetch_assoc($qryCheck);
 		if ($resultRow === false){$this->printValidationMessage(40); return false;}
-		else if ( ! ($resultRow === false) ) {$this->printValidationMessage(400); return $resultRow['userID'];}
+		else if ( ! ($resultRow === false) ) {$this->printValidationMessage(400); return $resultRow['userID'];}	
 	}
 
-	public function isEmailValid(&$emailParam)
+	public function isEmailValid(&$emailParam) 
 	{
 		$emailParam = trim($emailParam);
 		 if (filter_var($emailParam, FILTER_VALIDATE_EMAIL) === false) {$this->printValidationMessage(21); return false;}
-		 if ($this->isEmailSNUnique($emailParam, 'email') === false) 			   	   {$this->printValidationMessage(22); return false;}
 		 else																			   	   {$this->printValidationMessage(200); return true;}
 	}
-
+	
 	public function isSnValid(&$snParam)
 	{
 		$snParam = trim($snParam);
@@ -27,7 +25,7 @@ class validate{
 		if ((strlen($snParam) < 6) || (strlen($snParam) > 18) )	{$this->printValidationMessage(10); return false;}	
 		if (!(is_string($snParam)))									 		{$this->printValidationMessage(11); return false;}
 		if (!ctype_alnum(str_replace($validChars, '', $snParam))) {$this->printValidationMessage(12); return false;} 
-		if ($this->isEmailSNUnique($snParam, 'sn') === false)					{$this->printValidationMessage(13); return false;}
+		if ($this->isSnUnique($snParam) === false)					{$this->printValidationMessage(13); return false;}
 		else 																		{$this->printValidationMessage(100); return true;}
 	}
 
@@ -40,18 +38,24 @@ class validate{
 		else	{$this->printValidationMessage(300); return true;}
 	}
 
-	public function isEmailSNUnique($valueParam, $attributeToCheck) //Used to check for unique  E-Mail addresses, and screen names
+	public function isEmailUnique($valueParam) //Used to check for unique  E-Mail addresses, and screen names
 	{
-		$column = '';
-		if ($attributeToCheck === 'email') 	{$column = '`email`';}
-		if ($attributeToCheck === 'sn') 		{$column = '`nickname`';}
-		$sql = "SELECT $column FROM `tbusers` WHERE $column = '$valueParam'";
+		$sql = "SELECT `email` FROM `tbusers` WHERE `email` = '$valueParam'";
 		$qryCheck = mysql_query($sql);
 		$resultRow = mysql_fetch_assoc($qryCheck);
-		if ( ! ($resultRow === false) ) { return false; }
+		if ( ! ($resultRow === false) ) { $this->printValidationMessage(22); return false; }
 		else{return true;}
 	}
 
+		public function isSnUnique($valueParam) 
+	{
+		$sql = "SELECT `nickname` FROM `tbusers` WHERE `nickname` = '$valueParam'";
+		$qryCheck = mysql_query($sql);
+		$resultRow = mysql_fetch_assoc($qryCheck);
+		if ( ! ($resultRow === false) ) { $this->printValidationMessage(13); return false; }
+		else{return true;}
+	}
+	
 	public function printValidationMessage($messageNum) 
 	{
 		switch ($messageNum)
@@ -60,10 +64,10 @@ class validate{
 			case 11: 	echo '<br />Username is not a proper string. This shouldn\'t happen though.';break;
 			case 12: 	echo '<br />Username contains invalid characters'; 									break;
 			case 13: 	echo '<br />Such username already exists'; 												break;
-			case 100:	echo '<br />Valid, unique username.'; 														break;
+			case 100:	echo '<br />Username accepted';	 														break;
 			case 21: 	echo '<br />E-Mail is not in an acceptable format.'; 									break;
 			case 22: 	echo '<br />Records show an account already registered under that E-Mail'; 	break;
-			case 200: 	echo '<br />Valid, unique E-Mail accepted'; 												break;
+			case 200: 	echo '<br />E-Mail format is valid';															break;
 			case 31: 	echo '<br />The password is not a valid string. Should never happen.';			break;
 			case 32: 	echo '<br />The password must be at least 6 characters';							break;
 			case 33: 	echo '<br />The password cannot contain spaces';									break;
@@ -72,4 +76,5 @@ class validate{
 			case 400:	echo '<br />Successful authentication';													break;
 		}
 	}
+
 }?>

@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 
 
-$('#frmUsername, #frmEmail, #frmPass, #frmPass2').keyup(function(){valiDate()});
+//$('#frmUsername, #frmEmail, #frmPass, #frmPass2').keyup(function(){valiDate()});
 
 
 /*	$('#sbmtBtt').click(function(){

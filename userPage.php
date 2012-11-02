@@ -20,20 +20,16 @@ $varTitle = "Your Page";
 	
 	<div class="content">	
 	
-		<?php require "classes/userClass.php";
-		$userObj = new user((int)$_COOKIE['karnakCookie']);
-		$myUser = $userObj->serializeUser();
-
-		/*
-								'id' => $this->varUserID,
-								'sn' => $this->varNickname,
-								'pwd' => $this->varPassword,
-								'email' => $this->varEmail,
-								'about' => $this->varAbout,
-								'settings' => $this->varSettings,
-								'picture' => $this->varPicture,
-								'joined' => $this->varJoinDate);*/
-		?>
+<?php
+require_once "classes/userClass.php";
+require_once 'classes/dbAccessClass.php'; 
+$dab = dbAccess::getInstance();	
+$dab->connect();
+$userObj = new user();
+$userObj->fetchUser( (int)$_COOKIE['karnakCookie'] );
+$myUser = $userObj->serializeUser();
+// 'id' => $this->varUserID, 'sn' => $this->varNickname, 'pwd' => $this->varPassword, 'email' => $this->varEmail,
+ //'about' => $this->varAbout, 'settings' => $this->varSettings, 'picture' => $this->varPicture, 'joined' => $this->varJoinDate);?>
 
 
 		

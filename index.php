@@ -8,7 +8,7 @@ $varTitle = "Home";
 <html>
 <head>
 
-<!--<script type="text/javascript" src="includes/jquery-1.8.2.js"></script>-->
+<!--<script type="text/JavaScript" src="includes/jquery-1.8.2.js"></script>-->
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
 
 <title>Karnak | <?php echo $varTitle ?> </title></head>

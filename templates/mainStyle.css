@@ -85,3 +85,10 @@ img {
 		top:5%;
 		right:1%;
 		border:2px green dashed;}
+
+.single{
+    
+    width:50%; height:50%;
+    margin-top:15%; margin-left:auto; margin-right:auto;
+    border:red 2px dotted;
+}

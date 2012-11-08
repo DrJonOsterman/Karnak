@@ -50,7 +50,7 @@ public function serializePost()
   $queryVar = mysql_query($sql);
   
   if (mysql_num_rows($queryVar)==0)
-  {echo "<h3>There is no post with such ID: $userId</h3><br />";}
+  {echo "<h3>There are no postsmade by ID: $userId</h3><br />";}
 
   else
     {
@@ -75,17 +75,27 @@ mysql_query($sql);
 
 public function insertNew($aUserId, $aTitle, $aType, $aTags, $aContent)
 {
-  date_default_timezone_set('America/New_York');
+  //date_default_timezone_set('America/New_York');
   $aTime = date('Y-m-d G:i:s', time());
-   
-  $sql = "INSERT INTO `tbposts` 
-            (`userID`, `postTitle`, `postType`, `postTags`, `postContent`, `postTime`)
-      VALUES ('$aUserId', '$aTitle', '$aType', '$aTags', '$aContent', '$aTime')";
-  var_dump($sql);
-  if (mysql_query($sql)) echo "works!" ;
+  $sql = "INSERT INTO `karnak`.`tbposts` (`userID`, `postTitle`, `postType`, `postTags`, `postContent`, `postTime`) VALUES ('$aUserId', '$aTitle', '$aType', '$aTags', '$aContent', '$aTime')";
+  
+  if (mysql_query($sql)){ echo "<br>works!";}
+  
+  else{ echo "<br><b>no work</b>" ;}
 }
 
+public function deletePost($postID){
+$sql = "DELETE from `tbposts` WHERE `postID` = $postID";
+if(mysql_query($sql)){echo "Post deleted";}
+else {echo "could not delete";die; }
 }
 
 
+
+
+
+
+
+
+}
 ?>

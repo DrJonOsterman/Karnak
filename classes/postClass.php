@@ -45,6 +45,8 @@ public function serializePost()
 
  public function retrievePostsByUser($userId)
  {
+     
+ //    $sql2 = "SELECT ";
   $postArr = array();
   $sql = "SELECT * FROM `tbposts` WHERE `userID`='$userId'";
   $queryVar = mysql_query($sql);
@@ -54,7 +56,7 @@ public function serializePost()
 
   else
     {
-     while ($row = mysql_fetch_array($queryVar, MYSQL_NUM))
+     while ($row = mysql_fetch_array($queryVar, MYSQL_ASSOC))
            {$postArr[] = $row; }
     }
     return $postArr;

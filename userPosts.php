@@ -18,14 +18,18 @@ $varTitle = "Your Page";
             <?php
             require_once 'classes/postClient.php';
        
+            $allPosts = fetchPosts($_COOKIE['karnakCookie']);
             
             
-            /*foreach ($allPosts as $post)
+            foreach ($allPosts as $post)
             {
-             echo $post[0];
-            } */           
-            ?>
-        
+             foreach ($post as $postFields)
+             {
+                 echo $postFields;
+             }
+             echo '<hr>';
+            }
+           ?>
     </div>	
 </div>
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>

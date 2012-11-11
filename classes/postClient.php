@@ -30,8 +30,9 @@ function fetchPosts($uId)
     $db = dbAccess::getInstance();
     $db->connect();
     $postObj = new post();
-    $postArr = $postObj->retrievePostsByUser2($uId);
+    $postArr = $postObj->retrievePostsByUser($uId);
     return $postArr;
+     
 }
 
 ?>

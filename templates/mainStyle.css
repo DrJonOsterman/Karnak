@@ -27,8 +27,8 @@ nav{
 			position:absolute;
 			top:7%;left:10%;
 			background-color:rgba(0,0,0,.04);
-			width:90%;
-			height:87%;}
+			width:90%; height:87%;
+                        overflow-y:auto;}
 			
 #AJDiv{
 			position:absolute;

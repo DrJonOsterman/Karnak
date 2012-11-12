@@ -1,7 +1,7 @@
 <?php
 
 //is user logged in variable
-$varTitle = "Your Page";
+//$varTitle = "Your Page";
 ?>
 
 
@@ -37,19 +37,17 @@ $myUser = $userObj->serializeUser();
 
 		
 		<h1>Welcome <?php echo $myUser['sn'];?></h1>
-
-		<table class="left">
+                <form action="classes/userClient.php" method="POST">
+		<table class="left cute">
+                    
 		<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" /></td></tr>
 
 		<tr><td>Password</td><td><input type="text" value="<?php echo $myUser['pwd'] ?>" disabled="true" /></td></tr>
 		
-				<tr><td>About</td><td><textarea rows="4" cols="50"><?php echo $myUser['about'] ?></textarea></td></tr>
+		<tr><td>About</td><td><textarea rows="4" cols="50"><?php echo $myUser['about'] ?></textarea></td></tr>
 				
 		<tr><td>Member since</td><td><?php echo $myUser['joined'] ?></td></tr>
-
-
-
-		</table>
+		</table></form>
 	
 	</div>
 	

@@ -22,7 +22,7 @@ if (ISSET($_POST['param'])) //handle new posts
         header('Location: ../userPosts.php');
     }
 }
-else {echo 'What are you doing here trickster :|';}
+//else {echo 'What are you doing here trickster :|';}
 
 function fetchPosts($uId)
 {

@@ -15,20 +15,24 @@ $varTitle = "Your Page";
     So you want your posts here eh?
     <h2><a href="newPost.php"> New post </a></h2>
     <div>
+        
             <?php
             require_once 'classes/postClient.php';
        
             $allPosts = fetchPosts($_COOKIE['karnakCookie']);
             
-            
-            foreach ($allPosts as $post)
+             echo '<table class="cute"><th>Post#</th><th>AuthorID</th><th>PostID</th><th>Title</th><th>Type</th><th>Tags</th><th>Body</th><th>PostedTime</th><th>LastModified</th>';
+            foreach ($allPosts as $key => $post)
             {
-             foreach ($post as $postFields)
+                echo "<tr><th>$key</th>";
+                
+                foreach ($post as $postFields)
              {
-                 echo $postFields;
+                 echo "<th>$postFields</th>";
              }
-             echo '<hr>';
+             
             }
+            echo '</tr></table>';
            ?>
     </div>	
 </div>

@@ -18,19 +18,19 @@ $varTitle = "Your Page";
         
             <?php
             require_once 'classes/postClient.php';
-       
             $allPosts = fetchPosts($_COOKIE['karnakCookie']);
             
-             echo '<table class="cute"><th>Post#</th><th>AuthorID</th><th>PostID</th><th>Title</th><th>Type</th><th>Tags</th><th>Body</th><th>PostedTime</th><th>LastModified</th>';
+             echo '<table class="cute"><th>Post#</th><th>PostID</th><th>PosterID</th><th>Title</th><th>Type</th><th>Tags</th><th>Body</th><th>PostedTime</th><th>LastModified</th><th>-</th><th>-</th>';
             foreach ($allPosts as $key => $post)
             {
-                echo "<tr><th>$key</th>";
+                echo "<tr><td>$key</td>";
                 
                 foreach ($post as $postFields)
              {
-                 echo "<th>$postFields</th>";
+                 echo "<td>$postFields</td>";
              }
-             
+                echo "<td><a href='editPost.php?pID=".$post['postID']."'> Edit</a></td>";
+                echo "<td><a href='classes/postClient.php?param=delete&pID=".$post['postID']."'>Delete</a></td>";
             }
             echo '</tr></table>';
            ?>

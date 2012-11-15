@@ -9,24 +9,22 @@ class post
     private $pContent;
     private $pTime;
     public function __construct() {}
+    
 public function retrievePost($postId)
 {
+
   $sql = "SELECT * FROM `tbposts` WHERE `postID`='$postId'";
   $queryVar = mysql_query($sql);
   if (mysql_num_rows($queryVar)==0)
     {
         echo "<h3>There is no post with such ID: $postId</h3><br />";
+        //add validation to prevent user from editing another user's post
     }
   else
    {
-        $row = mysql_fetch_array($queryVar, MYSQL_NUM);
-        $this->pID = $row[0];
-        $this->pUserId = $row[1];
-        $this->pTitle = $row[2];
-        $this->pType = $row[3];
-        $this->pTags = $row[4];
-        $this->pContent = $row[5];
-        $this->pTime = $row[6];
+        $row = mysql_fetch_array($queryVar, MYSQL_ASSOC);
+        $post = $row;
+        return $post;
    }
 }
 
@@ -75,6 +73,19 @@ mysql_query($sql);
 
 }
 
+public static function updateAll($postId, $postArr)
+{
+    $sql = "UPDATE `tbposts` SET `postTitle` = '".$postArr['postTitle'].
+            "', `postType` = '".$postArr['postType'].
+            "', `postTags` = '".$postArr['postTags'].
+            "',`postContent` = '".$postArr['postContent'].
+            "' WHERE `postID` = '$postId'";
+    if (mysql_query($sql))   {return true;}
+    else {return false;}
+    
+}
+
+
 public function insertNew($aUserId, $aTitle, $aType, $aTags, $aContent)
 {
   //date_default_timezone_set('America/New_York');
@@ -86,10 +97,10 @@ public function insertNew($aUserId, $aTitle, $aType, $aTags, $aContent)
   else{ echo "<br><b>no work</b>" ;}
 }
 
-public function deletePost($postID){
+public static function deletePost($postID){
 $sql = "DELETE from `tbposts` WHERE `postID` = $postID";
-if(mysql_query($sql)){echo "Post deleted";}
-else {echo "could not delete";die; }
+if(mysql_query($sql)){return true;}
+else {return false;}
 }
 
 

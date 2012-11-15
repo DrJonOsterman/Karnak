@@ -96,4 +96,5 @@ img {
 table.cute, th, td{
  background-color:rgba(0,255,0,.05);
     border:black 1px solid;
+    font-size:95%;
 }

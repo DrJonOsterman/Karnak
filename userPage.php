@@ -15,30 +15,24 @@
 <title>Karnak | </title></head>
 
 <body>
-	<header> <?php require_once 'templates/secHeader.php'; ?> </header>
-		<nav> <?php require_once 'templates/secNav.php'; ?> </nav>
-	
-	<div class="content">	
-	
+<header><?php require_once 'templates/secHeader.php'; ?></header>
+<nav><?php require_once 'templates/secNav.php'; ?> </nav>
+<div class="content">	
 <?php
-require_once "classes/userClass.php";
-require_once 'classes/dbAccessClass.php'; 
-$dab = dbAccess::getInstance();	
-$dab->connect();
-$userObj = new user();
-$userObj->fetchUser( (int)$_COOKIE['karnakCookie'] );
-$myUser = $userObj->serializeUser();
 // 'id' => $this->varUserID, 'sn' => $this->varNickname, 'pwd' => $this->varPassword, 'email' => $this->varEmail,
- //'about' => $this->varAbout, 'settings' => $this->varSettings, 'picture' => $this->varPicture, 'joined' => $this->varJoinDate);?>
+ //'about' => $this->varAbout, 'settings' => $this->varSettings, 'picture' => $this->varPicture, 'joined' => $this->varJoinDate);
+
+require_once 'classes/userClient.php';
+$myUser = getmyUser();
 
 
-		
+?>
 		<img src ="<?php echo $myUser['picture']; ?>">
 
 		
 		<h1>Welcome <?php echo $myUser['sn'];?></h1>
                 <form action="classes/userClient.php" method="POST">
-		<table class="left cute">
+		<table class="cute">
                     
 		<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" /></td></tr>
 
@@ -54,5 +48,10 @@ $myUser = $userObj->serializeUser();
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>
 
+<script type="text/javascript">
+
+//alert("lol");
+
+</script>
 </html>
 

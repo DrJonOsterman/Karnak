@@ -5,7 +5,7 @@ $varTitle = "Your Page";
 <!DOCTYPE html>
 <html>
 <head>
-<!--<script type="text/javascript" src="includes/jquery-1.8.2.js"></script>-->
+<script type="text/javascript" src="includes/jquery-1.8.2.js"></script>
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
 <title>Karnak | </title></head>
 <body>
@@ -30,7 +30,7 @@ $varTitle = "Your Page";
                  echo "<td>$postFields</td>";
              }
                 echo "<td><a href='editPost.php?pID=".$post['postID']."'> Edit</a></td>";
-                echo "<td><a href='classes/postClient.php?param=delete&pID=".$post['postID']."'>Delete</a></td>";
+                echo "<td id=\"del\"><a href='classes/postClient.php?param=delete&pID=".$post['postID']."'>Delete</a></td>";
             }
             echo '</tr></table>';
            ?>
@@ -38,6 +38,21 @@ $varTitle = "Your Page";
 </div>
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>
+
+<script>
+
+    document.getElementById('del').onclick = confirm();
+    
+    function confirm(){
+    if (confirm('Delete: Are you sure?'))
+        {
+            if (confirm('Last chance, sure?'))        
+            {
+                document.write("ffffffff");
+            }
+        }
+    }
+</script>
 
 </html>
 

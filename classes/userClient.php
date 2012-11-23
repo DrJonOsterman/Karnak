@@ -4,7 +4,6 @@ require_once "userClass.php";
 require_once 'dbAccessClass.php'; 
 $dab = dbAccess::getInstance();	
 $dab->connect();
-//$userObj = new user();
 
 
 function getmyUser()
@@ -12,6 +11,15 @@ function getmyUser()
 $usr = user::fetchUser((int)($_COOKIE['karnakCookie']));
 return $usr;
 }
+
+if ((ISSET($_POST['param'])) && ($_POST['param'] === 'settings'))
+{
+    $lol = $_FILES['picture'];
+    var_dump($lol);
+    
+}
+
+
 
 
 /*

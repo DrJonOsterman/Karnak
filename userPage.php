@@ -1,10 +1,3 @@
-<?php
-
-//is user logged in variable
-//$varTitle = "Your Page";
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,35 +10,29 @@
 <body>
 <header><?php require_once 'templates/secHeader.php'; ?></header>
 <nav><?php require_once 'templates/secNav.php'; ?> </nav>
+
 <div class="content">	
-<?php
-// 'id' => $this->varUserID, 'sn' => $this->varNickname, 'pwd' => $this->varPassword, 'email' => $this->varEmail,
- //'about' => $this->varAbout, 'settings' => $this->varSettings, 'picture' => $this->varPicture, 'joined' => $this->varJoinDate);
+<?php require_once 'classes/userClient.php';
+$myUser = getmyUser();?>
 
-require_once 'classes/userClient.php';
-$myUser = getmyUser();
+<form action="classes/userClient.php" method="POST" enctype="multiplart/form-data">
+<img src ="<?php echo $myUser['picture'];?>"><br />
+<input type="file" multiple="false" name="picture"/>
 
+<h1>Welcome <?php echo $myUser['sn'];?></h1>
 
-?>
-		<img src ="<?php echo $myUser['picture']; ?>">
+<table class="cute">                  
+<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" /></td></tr>
+<tr><td>Password</td><td><input type="text" value="<?php echo $myUser['pwd'] ?>" disabled="true" /></td></tr>
+<tr><td>About</td><td><textarea rows="4" cols="50"><?php echo $myUser['about'] ?></textarea></td></tr>
+<tr><td>Member since</td><td><?php echo $myUser['joined'] ?></td></tr>
+</table>
+<input type="hidden" name="param" value="settings" />
+<input type="submit" value="Save Settings" /></form>
 
-		
-		<h1>Welcome <?php echo $myUser['sn'];?></h1>
-                <form action="classes/userClient.php" method="POST">
-		<table class="cute">
-                    
-		<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" /></td></tr>
-
-		<tr><td>Password</td><td><input type="text" value="<?php echo $myUser['pwd'] ?>" disabled="true" /></td></tr>
-		
-		<tr><td>About</td><td><textarea rows="4" cols="50"><?php echo $myUser['about'] ?></textarea></td></tr>
-				
-		<tr><td>Member since</td><td><?php echo $myUser['joined'] ?></td></tr>
-		</table></form>
+</div>
 	
-	</div>
-	
-	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
+<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>
 
 <script type="text/javascript">

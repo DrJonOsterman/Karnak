@@ -1,14 +1,12 @@
 html{
-			height:99%;
-			width: 99%;
+			height:99%; width: 99%;
 			position:absolute;
 			border:red 2px solid;} 
 body{
 			position:absolute;
 			left:10%;
 			border:red 2px dashed;
-			width:80%;
-			height:98%;}
+			width:80%; height:98%;}
 
 header{
 			position:absolute;
@@ -59,16 +57,14 @@ footer{
 					font-family:Courier New;
 					font-size:120%;
 					margin-top:15%; margin-left:auto; margin-right:auto;
-					width:60%;
-					height:40%;
+					width:60%;height:40%;
 					background-color:rgba(0,0,0,.05);
 					border:red 2px solid;}
 table.left{
 					font-family:Courier New;
 					font-size:120%;
 					margin-top:15%; margin-right:auto;
-					width:60%;
-					height:40%;
+					width:60%; height:40%;
 					background-color:rgba(0,0,0,.01);
 					border:red 2px solid;}
 
@@ -78,13 +74,12 @@ input[type="text"], input[type="password"], textarea{
 					background-color:rgb(255,250,205);
 					-moz-box-shadow:    inset 3px 3px 10px 3px #FFFFFF;
 					-webkit-box-shadow: inset 3px 3px 10px 3px #FFFFFF;
-						box-shadow:         inset 3px 3px 10px 3px #FFFFFF;}
+					box-shadow:         inset 3px 3px 10px 3px #FFFFFF;}
 						
-img {
-		position:absolute;
-		top:5%;
-		right:1%;
-		border:2px green dashed;}
+img, input[type="file"] {
+		border:1px green dashed;
+                float:right;
+                width:20%;height:20%;}
 
 .single{
     
@@ -98,3 +93,4 @@ table.cute, th, td{
     border:black 1px solid;
     font-size:95%;
 }
+

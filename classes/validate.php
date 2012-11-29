@@ -60,21 +60,20 @@ class validate
 	{
 		switch ($messageNum)
 		{
-			case 10: 	echo '<br />Username length is not between 6 and 18 characters.'; 				break;
-			case 11: 	echo '<br />Username is not a proper string. This shouldn\'t happen though.';break;
-			case 12: 	echo '<br />Username contains invalid characters'; 									break;
-			case 13: 	echo '<br />Such username already exists'; 												break;
-			case 100:	echo '<br />Username accepted';	 														break;
-			case 21: 	echo '<br />E-Mail is not in an acceptable format.'; 									break;
-			case 22: 	echo '<br />Records show an account already registered under that E-Mail'; 	break;
-			case 200: 	echo '<br />E-Mail format is valid';															break;
-			case 31: 	echo '<br />The password is not a valid string. Should never happen.';			break;
-			case 32: 	echo '<br />The password must be at least 6 characters';							break;
-			case 33: 	echo '<br />The password cannot contain spaces';									break;
-			case 300: 	echo '<br />Password accepted';															break;
-			case 40:	echo '<br />Not a valid email/password combination';									break;
-			case 400:	echo '<br />Successful authentication';													break;
+			case 10: 	echo '<br />Username length is not between 6 and 18 characters.'; break;
+			case 11: 	echo '<br />Username is not a proper string. This shouldn\'t happen though.'; break;
+			case 12: 	echo '<br />Username contains invalid characters'; break;
+			case 13: 	echo '<br />Such username already exists'; break;
+			case 100:	echo '<br />Username accepted';break;
+			case 21: 	echo '<br />E-Mail is not in an acceptable format.'; break;
+			case 22: 	echo '<br />Records show an account already registered under that E-Mail'; break;
+			case 200: 	echo '<br />E-Mail format is valid'; break;
+			case 31: 	echo '<br />The password is not a valid string. Should never happen.'; break;
+			case 32: 	echo '<br />The password must be at least 6 characters'; break;
+			case 33: 	echo '<br />The password cannot contain spaces'; break;
+			case 300: 	echo '<br />Password accepted'; break;
+			case 40:	echo '<br />Not a valid email/password combination'; break;
+			case 400:	echo '<br />Successful authentication'; break;
 		}
 	}
-
 }?>

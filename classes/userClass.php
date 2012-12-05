@@ -14,7 +14,7 @@ class user
     {
         /*date_default_timezone_set('America/New_York');*/ 
         $logInTime = date('Y-m-d G:i:s', time());
-        mysql_query("UPDATE `tbusers` SET `lastLogin` = '$logInTime' WHERE `userID` = '$pID' ");
+        mysql_query("UPDATE `tbusers` SET `lastLogin` = '$logInTime' WHERE `userId` = '$pID' ");
     }
 
     public function logOutUser()	
@@ -43,7 +43,7 @@ class user
             {
             // 'id' => $this->varUserID, 'sn' => $this->varNickname, 'pwd' => $this->varPassword, 'email' => $this->varEmail,
  //'about' => $this->varAbout, 'settings' => $this->varSettings, 'picture' => $this->varPicture, 'joined' => $this->varJoinDate);
-                $sqlString2 = "SELECT `userID` AS `id`, `nickname` AS `sn`, `password` AS `pwd`, `email`, `about`, `settings`, `picture`, `joinDate` as `joined` FROM `tbusers` WHERE `userID` = '$IDparam'";
+                $sqlString2 = "SELECT `userId` AS `id`, `nickname` AS `sn`, `password` AS `pwd`, `email`, `about`, `settings`, `picture`, `joinDate` as `joined` FROM `tbusers` WHERE `userID` = '$IDparam'";
                 $sqlString = "SELECT * from `tbusers` WHERE `userID` = '$IDparam'";
                 $queryVar = mysql_query($sqlString2);	
 
@@ -73,10 +73,10 @@ class user
     }
 }
 
-
 //check for 
 //updatedb
 //delete
 //etc
 
 ?>
+

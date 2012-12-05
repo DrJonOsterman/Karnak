@@ -24,73 +24,14 @@ nav{
 .content{
 			position:absolute;
 			top:7%;left:10%;
-			background-color:rgba(0,0,0,.04);
+			background-color:rgb(238,233,233);
 			width:90%; height:87%;
-                        overflow-y:auto;}
-			
-#AJDiv{
-			position:absolute;
-			top:48%;left:24%;
-			border:green 3px solid;
-			/*background-color:rgba(255,0,0,.5);*/
-			width:60%;
-			height:45%;
-			overflow: auto;}
-#ValiDiv{
-			position:absolute;
-			top:25%;left:6%;
-			border:black 3px dashed;
-			/*background-color:rgba(255,0,0,.5);*/
-			width:25%;
-			height:10%;
-			overflow: auto;}
-			
-			
+                        overflow-y:auto;}		
 footer{
-				position:absolute;
-				top:94.5%;left:0%;
-				height:5%; width:100%;
-				text-align:center;
-				background-color:rgba(255, 255, 50, .2);}  
+			position:absolute;
+			top:94.5%;left:0%;
+			height:5%; width:100%;
+			text-align:center;
+			background-color:rgba(255, 255, 50, .2);}  
 
- table.center{
-					font-family:Courier New;
-					font-size:120%;
-					margin-top:15%; margin-left:auto; margin-right:auto;
-					width:60%;height:40%;
-					background-color:rgba(0,0,0,.05);
-					border:red 2px solid;}
-table.left{
-					font-family:Courier New;
-					font-size:120%;
-					margin-top:15%; margin-right:auto;
-					width:60%; height:40%;
-					background-color:rgba(0,0,0,.01);
-					border:red 2px solid;}
-
-input[type="text"], input[type="password"], textarea{
-					width:99%;
-					height:100%;
-					background-color:rgb(255,250,205);
-					-moz-box-shadow:    inset 3px 3px 10px 3px #FFFFFF;
-					-webkit-box-shadow: inset 3px 3px 10px 3px #FFFFFF;
-					box-shadow:         inset 3px 3px 10px 3px #FFFFFF;}
-						
-img, input[type="file"] {
-		border:1px green dashed;
-                float:right;
-                width:20%;height:20%;}
-
-.single{
-    
-    width:50%; height:50%;
-    margin-top:15%; margin-left:auto; margin-right:auto;
-    border:red 2px dotted;
-}
-
-table.cute, th, td{
- background-color:rgba(0,255,0,.05);
-    border:black 1px solid;
-    font-size:95%;
-}
 

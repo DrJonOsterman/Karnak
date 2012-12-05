@@ -60,7 +60,7 @@ $(document).ready(function(){
 		<table class="center">
 			<tr>
 				<td><label for="frmUsername">Username:</label></td>
-				<td><input type="text" id="frmUsername" name="formTxtUsername" placeholder="Username"></td>
+				<td><input type="text" id="frmUsername" name="formTxtUsername" placeholder="Display Name"></td>
 			</tr>			
 			<tr>
 				<td><label for="frmEmail">E-Mail:</label></td>

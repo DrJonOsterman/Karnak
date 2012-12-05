@@ -29,8 +29,8 @@ $varTitle = "Your Page";
              {
                  echo "<td>$postFields</td>";
              }
-                echo "<td><a href='editPost.php?pID=".$post['postID']."'> Edit</a></td>";
-                echo "<td id=\"del\"><a href='classes/postClient.php?param=delete&pID=".$post['postID']."'>Delete</a></td>";
+                echo "<td><a href='editPost.php?pID=".$post['postId']."'> Edit</a></td>";
+                echo "<td id=\"del\"><a href='classes/postClient.php?param=delete&pID=".$post['postId']."'>Delete</a></td>";
             }
             echo '</tr></table>';
            ?>

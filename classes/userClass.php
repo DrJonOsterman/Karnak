@@ -10,6 +10,15 @@ class user
         $this->editLastLogIn($pID);
     }	
 
+    public function fetchId($sn)
+    {
+        $query = mysql_query("SELECT `userId`, `nickname` FROM tbusers WHERE `nickname` = '$sn'");
+        if($query)
+        {
+            $row = mysql_fetch_array($query, MYSQL_NUM);
+            return $row[0];
+        }
+    }
     public function editLastLogIn($pID)
     {
         /*date_default_timezone_set('America/New_York');*/ 
@@ -37,46 +46,28 @@ class user
     public static function fetchUser($IDparam) //this loads a user into the instance of this class.//Dependency on DB access class
     {
         if ((!(is_numeric($IDparam))) || (is_string($IDparam)))
-            { echo "<h3>That ID is not valid: $IDparam</h3><br />"; }
-
+        {
+            echo "<h3>That ID is not valid: $IDparam</h3><br />";
+        }
+        
         else
-            {
-            // 'id' => $this->varUserID, 'sn' => $this->varNickname, 'pwd' => $this->varPassword, 'email' => $this->varEmail,
- //'about' => $this->varAbout, 'settings' => $this->varSettings, 'picture' => $this->varPicture, 'joined' => $this->varJoinDate);
-                $sqlString2 = "SELECT `userId` AS `id`, `nickname` AS `sn`, `password` AS `pwd`, `email`, `about`, `settings`, `picture`, `joinDate` as `joined` FROM `tbusers` WHERE `userID` = '$IDparam'";
-                $sqlString = "SELECT * from `tbusers` WHERE `userID` = '$IDparam'";
-                $queryVar = mysql_query($sqlString2);	
-
-                if (mysql_num_rows($queryVar)==0)
-                    {	
-                        echo "<h3>There is no user with such ID: $IDparam</h3><br />";
-                        return null;
-                    }
-
-                else
-                    {
-                        $row = mysql_fetch_array($queryVar, MYSQLI_ASSOC);
-                        $userInfoArray = $row;
-                        return $userInfoArray;
-                    }                     
+        {
+            $sqlString2 = "SELECT `userId` AS `id`, `nickname` AS `sn`, `password` AS `pwd`, `email`, `about`, `settings`, `picture`, `joinDate` as `joined` FROM `tbusers` WHERE `userID` = '$IDparam'";
+            $queryVar = mysql_query($sqlString2);	
+        
+            if (mysql_num_rows($queryVar)==0)
+            {	
+                echo "<h3>There is no user with such ID: $IDparam</h3><br />";
+                return null;
             }
-    }
-
-    public function printInfo()
-    {
-        echo "<div style='border:1px red solid;'><h3>This is your user</h3>";
-        foreach($this as $var => $value)
+        
+            else
             {
-                echo $var.": ".$value."<br />";
-            }
-        echo "</div>";
+                $row = mysql_fetch_array($queryVar, MYSQLI_ASSOC);
+                $userInfoArray = $row;
+                return $userInfoArray;
+            }                     
+        }
     }
 }
-
-//check for 
-//updatedb
-//delete
-//etc
-
 ?>
-

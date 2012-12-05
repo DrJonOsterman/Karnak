@@ -1,3 +1,22 @@
+function isEmailUnique()
+{
+var data = 'param=ajax&formTxtEmail=' + ($('#em').val());
+$.post('classes/valiDateClient.php', data, function(response) {	err(response);});
+}
+
+function isSnUnique()
+{
+var data = 'param=ajax&formTxtUsername=' + ($('#sn').val());
+$.post('classes/valiDateClient.php', data, function(response) {	err(response);});
+}
+
+function isPassGood()
+{
+var data = 'param=ajax&formTxtPassword=' + ($('#pass').val());
+$.post('classes/valiDateClient.php', data, function(response) {	err(response);});
+}
+
+
 function valEmail()
 {
     //return (em.indexOf('@') === -1)  ? true : false
@@ -10,32 +29,12 @@ function valEmail()
     
     else
     {
-        emphasize('#em', 1);
         isEmailUnique();
+        emphasize('#em', 1);
+
+        
     }
 }
-
-function isEmailUnique()
-{
-var data = 'param=ajax&formTxtEmail=' + ($('#em').val());
-log(data);
-$.post('classes/valiDateClient.php', data, function(response) {	$('#ValiDiv').append(response);});
-}
-
-function isSnUnique()
-{
-var data = 'param=ajax&formTxtUsername=' + ($('#sn').val());
-log(data);
-$.post('classes/valiDateClient.php', data, function(response) {	$('#ValiDiv').append(response);});
-}
-
-function isPassGood()
-{
-var data = 'param=ajax&formTxtPassword=' + ($('#pass').val());
-log(data);
-$.post('classes/valiDateClient.php', data, function(response) {	$('#ValiDiv').append(response);});
-}
-
 
 function valSN()
 {
@@ -48,9 +47,13 @@ function valSN()
        }
   else
   {
-    emphasize('#sn', 1);
     isSnUnique();
-    return true;
+        
+              
+              emphasize('#sn', 1);
+              return true;
+
+        
   }
 }
 function valPass()
@@ -72,10 +75,13 @@ function valPass()
     
     else
     {
-        emphasize('#pass', 1);
-        emphasize('#pass2', 1);
         isPassGood();
-        return true; 
+
+                emphasize('#pass', 1);
+                emphasize('#pass2', 1);
+            
+            return true;  
+        
     }
 }
 
@@ -86,9 +92,8 @@ function emphasize(elem, valBool)
     $(elem).fadeIn(100, function(){$(elem).addClass(clss)});
 }
 
-
 var log = function(log){console.log(log)};
-var err = function(msg){$('#ValiDiv').append('<br />Client says ' + msg);}
+var err = function(msg){ $('#ValiDiv').html('Client says ' + msg);}
 
 //$('#sbmt').attr('disabled', 'true');
 $('#em').change(valEmail);

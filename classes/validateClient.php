@@ -22,21 +22,33 @@ if ($type === 'ajax')
     if (ISSET($_POST['formTxtEmail']))
     {    
         if($val->isEmailValid($_POST['formTxtEmail']))
-            $val->isEmailUnique($_POST['formTxtEmail']); 
+        { 
+            if($val->isEmailUnique($_POST['formTxtEmail']))
+            { 
+                
+            }                
+        }
     }
     
     if (ISSET($_POST['formTxtUsername']))
     {
         if($val->isSnValid($_REQUEST['formTxtUsername']))
-            $val->isSnUnique($_REQUEST['formTxtUsername']);
+        { 
+            if($val->isSnUnique($_REQUEST['formTxtUsername']))
+            { 
+                
+            }   
+        }
     }
-    
-        if (ISSET($_POST['formTxtPassword']))
+  
+    if (ISSET($_POST['formTxtPassword']))
     {
-        $val->isPassValid($_POST['formTxtPassword']);
+        if ($val->isPassValid($_POST['formTxtPassword']))
+        {
+            
+        }
     }
 }
-
 
 if ($type === 'new')
 {
@@ -47,6 +59,7 @@ if ($type === 'new')
 		($val->isEmailUnique($email) === true) &&
 		($val->isPassValid($password) === true))
 				{$userObj->insertNew($email, $password, $username);
+                                $userObj->logInUser(($userObj->fetchId($username)));
 				header('Location: ../index.php');}
 }
 
@@ -64,7 +77,6 @@ else if ($type === 'login')
 }
 
 else if ($type === 'edit') {echo 'soon';} 		// validate settings change
-
 else if (!($type === 'new' || $type === 'edit' || $type === 'login' || $type === 'ajax')) {echo 'What are you doing here trickster? ;)';}
 
 ?>

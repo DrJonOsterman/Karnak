@@ -9,6 +9,7 @@ $varTitle = "New Post";
 
 <!--<script type="text/JavaScript" src="includes/jquery-1.8.2.js"></script>-->
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
+<link rel="stylesheet" type="text/css" href="templates/formSS.css" />
 
 <title>Karnak | <?php echo $varTitle ?> </title></head>
 
@@ -16,17 +17,18 @@ $varTitle = "New Post";
 <header><?php require_once 'templates/secHeader.php'; ?> </header>
 <nav><?php require_once 'templates/secNav.php'; ?> </nav>
 <div class="content">	
-    <div class="single">
-    <form action="classes/postClient.php" name="newpostform" method="post">
-Title: <input type="text" name="title" />
-Type:<input type="text" name="type" />
-Tags: <input type="text" name="tags" />
-Body:<textarea name="content"></textarea>
-    <input type="hidden" name="param" value="new"/> <input type="submit"/>
-    </form>
     
     
-</div></div>
+<form action="classes/postClient.php" name="newpostform" method="post">
+<table class="formTable">
+    <tr><td>Title:</td><td> <input type="text" name="title" /></td></tr>
+    <tr><td>Type:</td><td><input type="text" name="type" /></td></tr>
+    <tr><td>Tags: </td><td><input type="text" name="tags" /></td></tr>
+    <tr><td>Body:</td><td><textarea name="content"></textarea></td></tr>
+    <tr><td><input type="hidden" name="param" value="new"/></td><td><input type="submit"/></td></tr>
+</table>
+</form> 
+</div>
 <footer><?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>
 

@@ -24,7 +24,7 @@ nav{
 .content{
 			position:absolute;
 			top:7%;left:10%;
-			background-color:rgb(238,233,233);
+			background-color:rgb(245,245,245);
 			width:90%; height:87%;
                         overflow-y:auto;}		
 footer{
@@ -35,3 +35,20 @@ footer{
 			background-color:rgba(255, 255, 50, .2);}  
 
 
+.listTable{
+    
+            background-color: rgb(255,211,155);
+            width:100%;
+           /* margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;*/
+            font-family:'times', monospace;
+}
+
+.listTable td{
+    background-color:floralwhite;
+}
+
+.listTable th{
+    background-color:cornflowerblue;
+}

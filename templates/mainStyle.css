@@ -1,49 +1,44 @@
 html{
-			height:99%; width: 99%;
-			position:absolute;
-			border:red 2px solid;} 
+    height:99%; width: 99%;
+    position:absolute;
+    border:red 2px solid;} 
 body{
-			position:absolute;
-			left:10%;
-			border:red 2px dashed;
-			width:80%; height:98%;}
+    position:absolute;
+    left:10%;
+    border:red 2px dashed;
+    width:80%; height:98%;}
 
 header{
-			position:absolute;
-			top:0%;left:0%;
-			width:40%; height:7%;
-			font-size:100%;
-			background-color:rgba(0, 0, 255, .2);
-			font-family:Courier New;
-			font-size:250%;}
+    position:absolute;
+    top:0%;left:0%;
+    width:40%; height:7%;
+    font-size:100%;
+    background-color:rgba(0, 0, 255, .2);
+    font-family:Courier New;
+    font-size:250%;}
 nav{
-			position:absolute;
-			top:7%;left:0%;
-			background-color:rgba(0, 255, 0, .2);
-			width:10%; height:25%;}
+    position:absolute;
+    top:7%;left:0%;
+    background-color:rgba(0, 255, 0, .2);
+    width:10%; height:25%;}
 .content{
-			position:absolute;
-			top:7%;left:10%;
-			background-color:rgb(245,245,245);
-			width:90%; height:87%;
-                        overflow-y:auto;}		
+    position:absolute;
+    top:7%;left:10%;
+    background-color:rgb(245,245,245);
+    width:90%; height:87%;
+    overflow-y:auto;
+    font-family:'courier', monospace;}		
 footer{
-			position:absolute;
-			top:94.5%;left:0%;
-			height:5%; width:100%;
-			text-align:center;
-			background-color:rgba(255, 255, 50, .2);}  
+    position:absolute;
+    top:94.5%;left:0%;
+    height:5%; width:100%;
+    text-align:center;
+    background-color:rgba(255, 255, 50, .2);}  
 
 
 .listTable{
-    
-            background-color: rgb(255,211,155);
-            width:100%;
-           /* margin-left: auto;
-            margin-right: auto;
-            margin-top: 5%;*/
-            font-family:'times', monospace;
-}
+    background-color: rgb(255,211,155);
+    width:100%;}
 
 .listTable td{
     background-color:floralwhite;

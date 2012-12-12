@@ -22,7 +22,7 @@ $varTitle = "New Post";
 <form action="classes/postClient.php" name="newpostform" method="post">
 <table class="formTable">
     <tr><td>Title:</td><td> <input type="text" name="title" /></td></tr>
-    <tr><td>Type:</td><td><input type="text" name="type" /></td></tr>
+    <tr><td>Type:</td><td><input type="text" name="type" value="Text"/></td></tr>
     <tr><td>Tags: </td><td><input type="text" name="tags" /></td></tr>
     <tr><td>Body:</td><td><textarea name="content"></textarea></td></tr>
     <tr><td><input type="hidden" name="param" value="new"/></td><td><input type="submit"/></td></tr>

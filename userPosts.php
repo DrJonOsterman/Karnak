@@ -13,24 +13,24 @@ $varTitle = "Your Page";
 <header> <?php require_once 'templates/secHeader.php'; ?> </header>
 <nav> <?php require_once 'templates/secNav.php'; ?> </nav>
 <div class="content">	
-    So you want your posts here eh?
+    <h1>So you want your posts here eh?</h1>
     <h2><a href="newPost.php"> New post </a></h2>
     <div>
         
 <table class="listTable">
-	<tr>
-	<th>Post#</th>
-	<th>PostID</th>
-	<th>PosterID</th>
-	<th>Title</th>
-	<th>Type</th>
-	<th>Tags</th>
-	<th>Body</th>
-	<th>PostedTime</th>
-	<th>LastModified</th>
-	<th>-</th>
-	<th>-</th>
-	</tr>
+    <tr>
+    <th>Post#</th>
+    <th>PostID</th>
+    <th>PosterID</th>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Tags</th>
+    <th>Body</th>
+    <th>PostedTime</th>
+    <th>LastModified</th>
+    <th>-</th>
+    <th>-</th>
+    </tr>
 
 <?php 
  require_once 'classes/postClient.php';

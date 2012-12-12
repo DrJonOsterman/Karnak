@@ -46,7 +46,7 @@ class validate
 		else{$this->printValidationMessage(210); return true;}
 	}
 
-		public function isSnUnique($valueParam) 
+	public function isSnUnique($valueParam) 
 	{
 		$sql = "SELECT `nickname` FROM `tbusers` WHERE `nickname` = '$valueParam'";
 		$qryCheck = mysql_query($sql);

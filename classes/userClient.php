@@ -13,9 +13,20 @@ return $usr;
 }
 
 if ((ISSET($_POST['param'])) && ($_POST['param'] === 'settings'))
-{
-    $lol = $_FILES['picture'];
-    var_dump($lol);
+{       
+    if ($_FILES["picture"]["error"] > 0)
+    {
+        echo "Error: " . $_FILES["picture"]["error"] . "<br>";
+    }
+    else
+    {
+            $lol = $_FILES['picture'];
+            //var_dump($lol);
+            move_uploaded_file($lol['tmp_name'], "../images/".$lol['name']);
+        //echo "<br> ABOUT: ".$_FILES['aboot'];
+    }
+  
+
     
 }
 

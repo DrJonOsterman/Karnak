@@ -7,7 +7,7 @@ $varTitle = "New Post";
 <html>
 <head>
 
-<!--<script type="text/JavaScript" src="includes/jquery-1.8.2.js"></script>-->
+<script type="text/JavaScript" src="includes/jquery-1.8.2.js"></script>
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
 <link rel="stylesheet" type="text/css" href="templates/formSS.css" />
 

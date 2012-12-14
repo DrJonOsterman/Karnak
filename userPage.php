@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<!--<script type="text/javascript" src="includes/jquery-1.8.2.js"></script>-->
+<script type="text/javascript" src="includes/jquery-1.8.2.js"></script>
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
 <link rel="stylesheet" type="text/css" href="templates/formSS.css" />
 <title>Karnak | </title></head>
@@ -24,9 +24,9 @@ $myUser = getmyUser();?>
 
 
 <table class="formTable">                  
-<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" /></td></tr>
+<tr><td>Email</td><td><input type="text" value="<?php echo $myUser['email'] ?>" disabled="disabled" /></td></tr>
 <tr><td>Password</td><td><input type="text" value="<?php echo $myUser['pwd'] ?>" disabled="disabled" /></td></tr>
-<tr><td>About</td><td><textarea rows="4" cols="50" name="aboot"><?php echo $myUser['about'] ?></textarea></td></tr>
+<tr><td>About</td><td><textarea rows="4" cols="50" name="about"><?php echo $myUser['about'] ?></textarea></td></tr>
 <tr><td>Member since</td><td><?php echo $myUser['joined'] ?></td></tr>
 </table>
 <input type="hidden" name="param" value="settings" />

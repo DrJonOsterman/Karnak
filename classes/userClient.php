@@ -1,33 +1,72 @@
 <?php
 
-require_once "userClass.php";
 require_once 'dbAccessClass.php'; 
 $dab = dbAccess::getInstance();	
 $dab->connect();
+require_once "userClass.php";
+
+function getMyUser(){return user::fetchUser((int)($_COOKIE['karnakCookie']));}
 
 
-function getmyUser()
-{
-$usr = user::fetchUser((int)($_COOKIE['karnakCookie']));
-return $usr;
-}
-
+//logic mess, will refactor later
 if ((ISSET($_POST['param'])) && ($_POST['param'] === 'settings'))
-{       
-    if ($_FILES["picture"]["error"] > 0)
+{   
+    $uid = (int)($_COOKIE['karnakCookie']);
+    
+    if (!($_FILES["picture"]["error"] === 0 || $_FILES["picture"]["error"] == 4)) //image error message, do not want your image
     {
         echo "Error: " . $_FILES["picture"]["error"] . "<br>";
     }
-    else
-    {
-            $lol = $_FILES['picture'];
-            //var_dump($lol);
-            move_uploaded_file($lol['tmp_name'], "../images/".$lol['name']);
-        //echo "<br> ABOUT: ".$_FILES['aboot'];
-    }
-  
-
     
+    else if ($_FILES["picture"]["error"] == 4 && empty($_POST['about'])) //no picture, no saved text => send back to profile
+    {
+        header('Location: ../userPage.php');    
+    }
+    
+    else if ($_FILES["picture"]["error"] === 4 && (!empty($_POST['about']))) //no picture, changed text => save text, send back
+    {
+        $abtText = $_POST['about'];
+        if(user::setAbout($uid, $abtText))
+        {
+            header('Location: ../userPage.php');
+        }
+    }
+        
+    else if ($_FILES["picture"]["error"] === 0 && empty($_POST['about'])) // picture, no text => save picture, send back
+    {
+        
+        $usrImage = $_FILES['picture'];
+        $filename = "http://localhost/peach/images/".$usrImage['name'];                     
+        move_uploaded_file($usrImage['tmp_name'], "../images/".$usrImage['name']);            
+        if(user::setPicture($uid, $filename))
+        {
+            header('Location: ../userPage.php');
+        }
+
+        else
+        {
+            echo "failed";                
+        }
+    }
+    
+    else if ($_FILES["picture"]["error"] === 0 && (!empty($_POST['about']))) // picture, no text => save picture, save text, send back
+    {
+        
+        $abtText = $_POST['about'];
+        $usrImage = $_FILES['picture'];
+        $filename = "http://localhost/peach/images/".$usrImage['name'];                     
+        move_uploaded_file($usrImage['tmp_name'], "../images/".$usrImage['name']);            
+        
+        if(user::setPicture($uid, $filename) && user::setAbout($uid, $abtText))
+        {
+            header('Location: ../userPage.php');
+        }
+
+        else
+        {
+            echo "failed";                
+        }    
+     }
 }
 
 

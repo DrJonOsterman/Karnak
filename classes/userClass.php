@@ -69,5 +69,26 @@ class user
             }                     
         }
     }
+    
+    public static function setPicture($id, $imagePath)
+    {
+        $sql = "UPDATE tbusers SET picture = '$imagePath' WHERE userId = '$id'"; 
+        if (mysql_query($sql))
+        {
+            return true;
+        }
+        else return false;
+    }
+    
+        public static function setAbout($id, $aboutText)
+    {
+        $sql = "UPDATE tbusers SET about = '$aboutText' WHERE userId = '$id'"; 
+        if (mysql_query($sql))
+        {
+            return true;
+        }
+        else return false;
+    }
+    
 }
 ?>

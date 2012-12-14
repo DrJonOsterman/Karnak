@@ -58,22 +58,23 @@ $allPosts = fetchPosts($_COOKIE['karnakCookie']);
     </div>	
 </div>
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
+        <script>
+
+//    document.getElementById('del').onclick = confirm();
+//    
+//    function confirm(){
+//    if (confirm('Delete: Are you sure?'))
+//        {
+//            if (confirm('Last chance, sure?'))        
+//            {
+//                document.write("ffffffff");
+//            }
+//        }
+//    }
+</script>
 </body>
 
-<script>
 
-    document.getElementById('del').onclick = confirm();
-    
-    function confirm(){
-    if (confirm('Delete: Are you sure?'))
-        {
-            if (confirm('Last chance, sure?'))        
-            {
-                document.write("ffffffff");
-            }
-        }
-    }
-</script>
 
 </html>
 

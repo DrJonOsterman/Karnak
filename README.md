@@ -46,4 +46,4 @@ Sample Microblogging service
 ###Client/server validation (yes, password input will be hidden in release)
 ![AJAX Validation](http://img708.imageshack.us/img708/3356/k03.png)
 
-###*Of course all data irrelevant to user will be in a release.*
+###*Of course all data irrelevant to user will be removed in a release.*

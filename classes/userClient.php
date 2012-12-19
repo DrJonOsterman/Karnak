@@ -13,12 +13,12 @@ if ((ISSET($_POST['param'])) && ($_POST['param'] === 'settings'))
 {   
     $uid = (int)($_COOKIE['karnakCookie']);
     
-    if (!($_FILES["picture"]["error"] === 0 || $_FILES["picture"]["error"] == 4)) //image error message, do not want your image
+    if (!($_FILES["picture"]["error"] === 0 || $_FILES["picture"]["error"] === 4)) //image error message, do not want your image
     {
         echo "Error: " . $_FILES["picture"]["error"] . "<br>";
     }
     
-    else if ($_FILES["picture"]["error"] == 4 && empty($_POST['about'])) //no picture, no saved text => send back to profile
+    else if ($_FILES["picture"]["error"] === 4 && empty($_POST['about'])) //no picture, no saved text => send back to profile
     {
         header('Location: ../userPage.php');    
     }

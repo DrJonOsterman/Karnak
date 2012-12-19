@@ -91,7 +91,6 @@ public function insertNew($aUserId, $aTitle, $aType, $aTags, $aContent)
   //date_default_timezone_set('America/New_York');
   $aTime = date('Y-m-d G:i:s', time());
   $sql = "INSERT INTO `karnak`.`tbposts` (`userId`, `postTitle`, `postType`, `postTags`, `postContent`, `postTime`) VALUES ('$aUserId', '$aTitle', '$aType', '$aTags', '$aContent', '$aTime')";
-  
   if (mysql_query($sql)){ echo "<br>works!";}
   
   else{ echo "<br><b>no work</b>" ;}

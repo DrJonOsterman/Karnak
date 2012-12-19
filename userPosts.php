@@ -13,7 +13,7 @@ $varTitle = "Your Page";
 <header> <?php require_once 'templates/secHeader.php'; ?> </header>
 <nav> <?php require_once 'templates/secNav.php'; ?> </nav>
 <div class="content">	
-    <h1>So you want your posts here eh?</h1>
+    <h1>Your Posts</h1>
     <h2><a href="newPost.php"> New post </a></h2>
     <div>
         
@@ -45,7 +45,8 @@ $allPosts = fetchPosts($_COOKIE['karnakCookie']);
      echo "<td>$postFields</td>";
  }
     echo "<td><a href='editPost.php?pID=".$post['postId']."'> Edit</a></td>";
-    echo "<td id=\"del\"><a href='classes/postClient.php?param=delete&pID=".$post['postId']."'>Delete</a></td>";
+    //echo "<td id=\"del\"><a href='classes/postClient.php?param=delete&pID=".$post['postId']."'>Delete</a></td>";
+    echo "<td onclick='delConfirm(this.id)' id='".$post['postId']."'>Delete</a></td>";
     echo '</tr>';
 }
 
@@ -58,19 +59,16 @@ $allPosts = fetchPosts($_COOKIE['karnakCookie']);
     </div>	
 </div>
 	<footer> <?php require_once 'templates/secFooter.php'; ?> </footer>
-        <script>
+<script type="text/javascript">
 
-//    document.getElementById('del').onclick = confirm();
-//    
-//    function confirm(){
-//    if (confirm('Delete: Are you sure?'))
-//        {
-//            if (confirm('Last chance, sure?'))        
-//            {
-//                document.write("ffffffff");
-//            }
-//        }
-//    }
+function delConfirm(pId)
+{
+    if (confirm("Are you sure you want to remove this post?") === true && confirm("Last chance") === true)
+    {
+            document.location = 'classes/postClient.php?param=delete&pID='+pId;
+    }
+}
+
 </script>
 </body>
 

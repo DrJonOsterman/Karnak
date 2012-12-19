@@ -20,6 +20,7 @@ if (ISSET($_REQUEST['param']) && (ISSET($_COOKIE['karnakCookie']))) //handle new
         $userID = $_COOKIE['karnakCookie'];
         $postObj->insertNew($userID, $uTitle, $uType, $uTags, $uContent);
         header('Location: ../userPosts.php');
+        
     }
     
    if ($uParam === 'edit')

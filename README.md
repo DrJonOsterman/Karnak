@@ -14,6 +14,13 @@ Sample Microblogging service
 + Apache
 + Windows
 
+### Data Structure
+
++ This was built with no real framework, like CakePHP or CodeIgniter. I made 'user' and 'post' classes to represent the tables in the database. Although I linked a class to a table, it was done loosely, unlike an ORM implementation in which a class directly represents a table. Using classes was more for the sake of keeping things in their own scope. 
++ Singleton pattern was used to hold a class containing the connection details
+
+
+
 ###Current Features
 - Register / Log-In
 + + Client-side validation with JS
@@ -30,6 +37,7 @@ Sample Microblogging service
 + Comment
 
 ### Dev To Do
++ "View Post" linked from post title cell.
 + Implement more secure user session handling 
 + Replace database queries to a supported extension like MySQLi
 + Passwords need safer encoding than a Salt.

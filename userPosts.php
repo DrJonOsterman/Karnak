@@ -1,12 +1,13 @@
 <?php
 //is user logged in variable
-$varTitle = "Your Page";
+//$varTitle = "Your Page";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <script type="text/javascript" src="includes/jquery-1.8.2.js"></script>
 <link rel="stylesheet" type="text/css" href="templates/mainStyle.css" />
+
 
 <title>Karnak | </title></head>
 <body>
@@ -30,6 +31,7 @@ $varTitle = "Your Page";
     <th>LastModified</th>
     <th>-</th>
     <th>-</th>
+    <th>-</th>
     </tr>
 
 <?php 
@@ -44,6 +46,8 @@ $allPosts = fetchPosts($_COOKIE['karnakCookie']);
  {
      echo "<td>$postFields</td>";
  }
+     echo "<td><a href='viewPost.php?pID=".$post['postId']."'> View Post</a></td>";
+
     echo "<td><a href='editPost.php?pID=".$post['postId']."'> Edit</a></td>";
     //echo "<td id=\"del\"><a href='classes/postClient.php?param=delete&pID=".$post['postId']."'>Delete</a></td>";
     echo "<td onclick='delConfirm(this.id)' id='".$post['postId']."'>Delete</a></td>";

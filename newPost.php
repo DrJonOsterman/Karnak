@@ -31,11 +31,4 @@ $varTitle = "New Post";
 </div>
 <footer><?php require_once 'templates/secFooter.php'; ?> </footer>
 </body>
-
-<script type="text/javascript">
-function browserDetect()
-{if (/Android|webOS|iPhone|iPad|iPod|IEMobile|BlackBerry/i.test(navigator.userAgent)){console.log('Mobile Browser');}
-else{console.log('Desktop/Laptop Browser');}}</script>
-
-
 </html>

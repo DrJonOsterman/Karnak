@@ -1,0 +1,20 @@
+h1{
+font-family: cursive;
+text-indent: 14%;
+}
+
+.content div{
+padding:2%;
+position:relative;
+left: 10%;
+border: 1px green solid;
+background-color: rgb(255,255,255);
+text-align: left;
+width:75%; height:70%;
+}
+.tags{
+border:blue 1px solid;
+position:relative;
+top:20px;
+left: 10%;
+}

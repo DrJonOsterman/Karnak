@@ -36,7 +36,7 @@ Sample Microblogging service
 + Tag search
 + Comment
 
-### Dev To Do
+### To Do
 + "View Post" linked from post title cell.
 + Implement more secure user session handling 
 + Replace database queries to a supported extension like MySQLi
@@ -54,4 +54,4 @@ Sample Microblogging service
 ###Client/server validation (yes, password input will be hidden in release)
 ![AJAX Validation](http://img708.imageshack.us/img708/3356/k03.png)
 
-###*Of course all data irrelevant to user will be removed in a release.*
+###*Of course there is some test data that would be removed when in production.*

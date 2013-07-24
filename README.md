@@ -51,7 +51,7 @@ Sample Microblogging service
 
 ![Post making](http://img818.imageshack.us/img818/8322/k02.png)
 
-###Client/server validation (yes, password input will be hidden in release)
+###Client/server validation (password input will be hidden in release)
 ![AJAX Validation](http://img708.imageshack.us/img708/3356/k03.png)
 
 ###*Of course there is some test data that would be removed when in production.*
